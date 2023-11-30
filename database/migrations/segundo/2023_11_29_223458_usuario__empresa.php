@@ -13,10 +13,10 @@ class UsuarioEmpresa extends Migration
      */
     public function up()
     {
-        Schema::create('usuario_empresa', function (Blueprint $table) {
-            $table->unsignedBigInteger('usuario_id');
+        Schema::create('user_empresa', function (Blueprint $table) {
+            $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('empresa_id');
-            $table->foreign('usuario_id')->references('id')->on('usuarios');
+            $table->foreign('user_id')->references('id')->on('user');
             $table->foreign('empresa_id')->references('id')->on('empresas');
         });
     }
