@@ -59,17 +59,18 @@ class UserController extends Controller
         return response()->json(['message' => 'Usuario actualizado con éxito', 'user' => $user]);
     }
 
-    // Eliminar un usuario
-    public function destroy($id)
-    {
-        $user = User::find($id);
+  // Desactivar un usuario
+public function deactivate($id)
+{
+    $user = User::find($id);
 
-        if (!$user) {
-            return response()->json(['message' => 'Usuario no encontrado'], 404);
-        }
-
-        $user->delete();
-
-        return response()->json(['message' => 'Usuario eliminado con éxito']);
+    if (!$user) {
+        return response()->json(['message' => 'Usuario no encontrado'], 404);
     }
+
+    $user->update(['status' => false]);
+
+    return response()->json(['message' => 'Usuario desactivado con éxito']);
+}
+
 }
