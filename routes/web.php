@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\SensorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::post('/sensores', [SensorController::class, 'create']);
+Route::put('/sensores/{id}', [SensorController::class, 'update']);
